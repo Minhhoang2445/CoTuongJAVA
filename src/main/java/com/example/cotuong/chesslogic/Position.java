@@ -33,7 +33,7 @@ public class Position {
     }
 
     public static boolean equals(Position left, Position right) {
-        return left == right || (left != null && left.equals(right));
+        return Objects.equals(left, right);
     }
 
     public static boolean notEquals(Position left, Position right) {

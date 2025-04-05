@@ -30,11 +30,11 @@ public class Move {
     public boolean isLegal(Board board) {
         Player player = board.get(fromPos).getColor();
         Board boardCopy = board.copy();
-        excute(boardCopy);
+        execute(boardCopy);
         return !boardCopy.isInCheck(player);
     }
 
-    public boolean excute(Board board) {
+    public boolean execute(Board board) {
         Piece piece = board.get(fromPos);
         boolean capture = !board.isEmpty(toPos);
         board.set(toPos, piece);

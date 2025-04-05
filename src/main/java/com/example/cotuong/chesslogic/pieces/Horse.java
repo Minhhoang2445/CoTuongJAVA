@@ -1,7 +1,6 @@
 package com.example.cotuong.chesslogic.pieces;
 
 import com.example.cotuong.chesslogic.*;
-import javafx.geometry.Pos;
 
 import java.util.ArrayList;
 import java.util.List;
