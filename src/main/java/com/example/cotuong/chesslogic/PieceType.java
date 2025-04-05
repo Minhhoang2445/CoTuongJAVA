@@ -1,11 +1,11 @@
 package com.example.cotuong.chesslogic;
 
 public enum PieceType {
-    General,
-    Advisor,
-    Chariot,
-    Cannon,
-    Elephant,
-    Horse,
-    Soldier
+    GENERAL,
+    ADVISOR,
+    CHARIOT,
+    CANNON,
+    ELEPHANT,
+    HORSE,
+    SOLDIER
 }

@@ -1,5 +1,7 @@
 package com.example.cotuong.chesslogic;
 
+import com.example.cotuong.chesslogic.pieces.Piece;
+
 public class Move {
     private Position fromPos;
     private Position toPos;
@@ -25,8 +27,19 @@ public class Move {
         this.toPos = toPos;
     }
 
-    public boolean isLegal() {
+    public boolean isLegal(Board board) {
+        Player player = board.get(fromPos).getColor();
+        Board boardCopy = board.copy();
+        excute(boardCopy);
+        return !boardCopy.isInCheck(player);
+    }
 
-
+    public boolean excute(Board board) {
+        Piece piece = board.get(fromPos);
+        boolean capture = !board.isEmpty(toPos);
+        board.set(toPos, piece);
+        board.set(fromPos, null);
+        piece.hasMoved = true;
+        return capture;
     }
 }

@@ -6,8 +6,17 @@ import java.util.List;
 
 public abstract class Piece {
     public Player bottomPlayer;
-    public abstract PieceType getType();
-    public abstract Player getColor();
+    protected PieceType type;
+    protected Player color;
+
+    public PieceType getType() {
+        return type;
+    }
+
+    public Player getColor() {
+        return color;
+    }
+
     public boolean hasMoved = false;
     public abstract Piece copy();
 
@@ -16,20 +25,20 @@ public abstract class Piece {
     public boolean canCaptureOpponentGeneral(Position from, Board board) {
         return getMoves(from, board).stream().anyMatch(move -> {
             Piece piece = board.get(move.getToPos());
-            return piece != null && piece.getType() == PieceType.General;
+            return piece != null && piece.getType() == PieceType.GENERAL;
         });
     }
 
     @Override
     public String toString() {
         switch (getType()) {
-            case General: return (getColor() == Player.Black) ? "bG" : "rG";
-            case Advisor: return (getColor() == Player.Black) ? "bA" : "rA";
-            case Chariot: return (getColor() == Player.Black) ? "bCh" : "rCh";
-            case Cannon: return (getColor() == Player.Black) ? "bC" : "rC";
-            case Elephant: return (getColor() == Player.Black) ? "bE" : "rE";
-            case Horse: return (getColor() == Player.Black) ? "bH" : "rH";
-            default: return (getColor() == Player.Black) ? "bS" : "rS";
+            case GENERAL: return (getColor() == Player.BLACK) ? "bG" : "rG";
+            case ADVISOR: return (getColor() == Player.BLACK) ? "bA" : "rA";
+            case CHARIOT: return (getColor() == Player.BLACK) ? "bCh" : "rCh";
+            case CANNON: return (getColor() == Player.BLACK) ? "bC" : "rC";
+            case ELEPHANT: return (getColor() == Player.BLACK) ? "bE" : "rE";
+            case HORSE: return (getColor() == Player.BLACK) ? "bH" : "rH";
+            default: return (getColor() == Player.BLACK) ? "bS" : "rS";
         }
     }
 }

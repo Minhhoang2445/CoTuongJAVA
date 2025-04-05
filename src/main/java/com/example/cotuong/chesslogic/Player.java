@@ -1,18 +1,18 @@
 package com.example.cotuong.chesslogic;
 
 public enum Player {
-    None,
-    Red,
-    Black;
+    NONE,
+    RED,
+    BLACK;
 
     public Player opponent() {
         switch (this) {
-            case Red:
-                return Black;
-            case Black:
-                return Red;
+            case RED:
+                return BLACK;
+            case BLACK:
+                return RED;
             default:
-                return None;
+                return NONE;
         }
     }
 }

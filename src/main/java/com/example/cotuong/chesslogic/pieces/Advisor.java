@@ -6,26 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Advisor extends Piece {
-    private final Player color;
-    private final Player bottomPlayer;
 
     public Advisor(Player color) {
-        this(color, Player.Red);
+
+        this(color, Player.RED);
     }
 
     public Advisor(Player color, Player bottomPlayer) {
         this.color = color;
         this.bottomPlayer = bottomPlayer;
-    }
-
-    @Override
-    public PieceType getType() {
-        return PieceType.Advisor;
-    }
-
-    @Override
-    public Player getColor() {
-        return color;
+        this.type = PieceType.ADVISOR;
     }
 
     @Override
@@ -36,10 +26,10 @@ public class Advisor extends Piece {
     }
 
     private static final Direction[] dirs = {
-            Direction.SouthEast, Direction.SouthWest, Direction.NorthEast, Direction.NorthWest
+            Direction.SOUTH_EAST, Direction.SOUTH_WEST, Direction.NORTH_EAST, Direction.NORTH_WEST
     };
 
-    private Iterable<Position> movePositions(Position from, Board board) {
+    private List<Position> movePositions(Position from, Board board) {
         List<Position> positions = new ArrayList<>();
         for (Direction dir : dirs) {
             Position to = from.add(dir);
@@ -47,7 +37,7 @@ public class Advisor extends Piece {
                 continue;
             }
 
-            if (Board.isInPalace(to, color) && (board.isEmpty(to) || board.getPiece(to).getColor() != color)) {
+            if (Board.isInPalace(to, color) && (board.isEmpty(to) || board.get(to).getColor() != color)) {
                 positions.add(to);
             }
         }
@@ -55,10 +45,10 @@ public class Advisor extends Piece {
     }
 
     @Override
-    public Iterable<Move> getMoves(Position from, Board board) {
+    public List<Move> getMoves(Position from, Board board) {
         List<Move> moves = new ArrayList<>();
         for (Position to : movePositions(from, board)) {
-            moves.add(new NormalMove(from, to));
+            moves.add(new Move(from, to));
         }
         return moves;
     }
