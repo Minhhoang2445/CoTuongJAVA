@@ -13,10 +13,12 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("BanCo.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/cotuong/BanCo.fxml")));
             Scene scene = new Scene(root,600,600);
-            scene.getStylesheets().add(getClass().getResource("BanCo.css").toExternalForm());
-
+            stage.setTitle("Cờ Tướng");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
