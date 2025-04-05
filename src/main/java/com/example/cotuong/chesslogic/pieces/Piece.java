@@ -1,9 +1,6 @@
 package com.example.cotuong.chesslogic.pieces;
 
-import com.example.cotuong.chesslogic.Move;
-import com.example.cotuong.chesslogic.PieceType;
-import com.example.cotuong.chesslogic.Player;
-import com.example.cotuong.chesslogic.Position;
+import com.example.cotuong.chesslogic.*;
 
 import java.util.List;
 
