@@ -190,39 +190,39 @@ public class ValuePiece {
     //Lấy giá trị bàn cờ
     public int getValueBoard(Board board){
         int totalvalue = 0;
-//        for (int i = 0; i < 10; i++)
-//        {
-//            for (int j = 0; j < 9; j++)
-//            {
-//                if (board[i, j] != null)
-//                {
-//                    switch (board[i, j].Type)
-//                    {
-//                        case PieceType.Cannon:
-//                            totalvalue += (board[i, j].Color == Player.Red) ? -(45 + rCannon[i, j]) : (45 + bCannon[i, j]);
-//                            break;
-//                        case PieceType.Advisor:
-//                            totalvalue += (board[i, j].Color == Player.Red) ? -(20 + rAdvisor[i, j]) : (20 + bAdvisor[i, j]);
-//                            break;
-//                        case PieceType.Horse:
-//                            totalvalue += (board[i, j].Color == Player.Red) ? -(40 + rHorse[i, j]) : (40 + bHorse[i, j]);
-//                            break;
-//                        case PieceType.Elephant:
-//                            totalvalue += (board[i, j].Color == Player.Red) ? -(20 + rElephant[i, j]) : (20 + bElephant[i, j]);
-//                            break;
-//                        case PieceType.Chariot:
-//                            totalvalue += (board[i, j].Color == Player.Red) ? -(90 + rChariot[i, j]) : (90 + bChariot[i, j]);
-//                            break;
-//                        case PieceType.Soldier:
-//                            totalvalue += (board[i, j].Color == Player.Red) ? -(15 + rSoldier[i, j]) : (15 + bSoldier[i, j]);
-//                            break;
-//                        case PieceType.General:
-//                            totalvalue += (board[i, j].Color == Player.Red) ? -(900 + rGeneral[i, j]) : (900 + bGeneral[i, j]);
-//                            break;
-//                    }
-//                }
-//            }
-//        }
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (board.get(i,j) != null)
+                {
+                    switch (board.get(i,j).getType())
+                    {
+                        case PieceType.CANNON:
+                            totalvalue += (board.get(i,j).getColor() == Player.RED) ? -(45 + rCannon[i][j]) : (45 + bCannon[i][j]);
+                            break;
+                        case PieceType.ADVISOR:
+                            totalvalue += (board.get(i,j).getColor() == Player.RED) ? -(20 + rAdvisor[i][j]) : (20 + bAdvisor[i][j]);
+                            break;
+                        case PieceType.HORSE:
+                            totalvalue += (board.get(i,j).getColor() == Player.RED) ? -(40 + rHorse[i][j]) : (40 + bHorse[i][j]);
+                            break;
+                        case PieceType.ELEPHANT:
+                            totalvalue += (board.get(i,j).getColor() == Player.RED) ? -(20 + rElephant[i][j]) : (20 + bElephant[i][j]);
+                            break;
+                        case PieceType.CHARIOT:
+                            totalvalue += (board.get(i,j).getColor() == Player.RED) ? -(90 + rChariot[i][j]) : (90 + bChariot[i][j]);
+                            break;
+                        case PieceType.SOLDIER:
+                            totalvalue += (board.get(i,j).getColor() == Player.RED) ? -(15 + rSoldier[i][j]) : (15 + bSoldier[i][j]);
+                            break;
+                        case PieceType.GENERAL:
+                            totalvalue += (board.get(i,j).getColor() == Player.RED) ? -(900 + rGeneral[i][j]) : (900 + bGeneral[i][j]);
+                            break;
+                    }
+                }
+            }
+        }
         return totalvalue;
     }
 }
