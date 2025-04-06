@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.cotuong.controller.GameScreenController" prefWidth="900" prefHeight="600">
+
+    <!-- Người chơi 1 (trái) -->
+    <left>
+        <VBox spacing="15" alignment="TOP_CENTER" >
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+            <Label text="Người chơi 1" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Label text="Thời gian: 10:00"/>
+            <Button text="Undo" prefWidth="100"/>
+        </VBox>
+    </left>
+
+    <!-- Bàn cờ ở giữa -->
+    <center>
+        <GridPane fx:id="boardPane" hgap="2" vgap="2" alignment="CENTER"
+                  style="-fx-background-color: bisque;">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+        </GridPane>
+    </center>
+
+    <!-- Người chơi 2 (phải) -->
+    <right>
+        <VBox spacing="15" alignment="TOP_CENTER" >
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+            <Label text="Người chơi 2" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Label text="Thời gian: 10:00"/>
+            <Button text="Cài đặt" prefWidth="100"/>
+        </VBox>
+    </right>
+</BorderPane>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.cotuong.controller.MainMenuController"
+      spacing="20" alignment="CENTER"
+      prefWidth="400" prefHeight="300"
+      style="-fx-background-color: lightsteelblue;">
+
+    <Label text="CỜ TƯỚNG" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+    <Button text="Chơi" onAction="#handlePlay" prefWidth="150"/>
+    <Button text="Cài đặt" onAction="#handleSettings" prefWidth="150"/>
+    <Button text="Lịch sử đấu" onAction="#handleHistory" prefWidth="150"/>
+    <Button text="Thoát" onAction="#handleExit" prefWidth="150"/>
+</VBox>
