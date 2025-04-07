@@ -33,7 +33,6 @@ public class HelloApplication extends Application {
             System.err.println("Lỗi tải hình ảnh (phương pháp 1): " + e.getMessage());
         }
         primaryStage.centerOnScreen();
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         // Tạo grid chính
         mainWindowGrid = new GridPane();

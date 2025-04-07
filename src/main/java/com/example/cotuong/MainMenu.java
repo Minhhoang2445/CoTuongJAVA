@@ -1,8 +1,11 @@
 package com.example.cotuong;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
@@ -18,10 +21,14 @@ import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
+import java.io.IOException;
+
 public class MainMenu extends BorderPane {
     private Stage stage;
     private double xOffset = 0;
     private double yOffset = 0;
+    private Button playButton;
+
 
     public MainMenu(Stage stage) {
         this.stage = stage;
@@ -151,7 +158,7 @@ public class MainMenu extends BorderPane {
         // Create the buttons
         Button instructionsButton = createMenuButton(MaterialDesign.MDI_BOOK_OPEN_VARIANT, "Hướng dẫn chơi");
         Button settingsButton = createMenuButton(FontAwesomeSolid.BOX, "Cài đặt");
-        Button playButton = createMenuButton(FontAwesomeSolid.PLAY, "Chơi");
+        playButton = createMenuButton(FontAwesomeSolid.PLAY, "Chơi");
         Button historyButton = createMenuButton(MaterialDesign.MDI_HISTORY, "Lịch sử chơi");
         Button downloadButton = createMenuButton(FontAwesomeSolid.DOWNLOAD, "Tải");
 
@@ -207,8 +214,25 @@ public class MainMenu extends BorderPane {
     }
 
     private void handlePlayButton() {
-        System.out.println("Play button clicked");
-        // Add your implementation
+        try {
+            // Load FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cotuong/GameScreen.fxml"));
+            Parent root = loader.load();
+
+            // Tạo scene mới
+            Scene gameScene = new Scene(root, 1200, 720);
+
+            // Lấy stage hiện tại từ nút hoặc bất kỳ node nào
+            Stage stage = (Stage) ((Node) playButton).getScene().getWindow();  // `playButton` là ID của nút
+
+            // Đặt scene mới
+            stage.setScene(gameScene);
+            stage.setTitle("Cờ Tướng - Game");
+
+        } catch (IOException e) {
+            System.err.println("Lỗi chuyển sang màn hình chơi game: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     private void handleHistoryButton() {

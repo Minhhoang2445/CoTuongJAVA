@@ -20,7 +20,7 @@ public abstract class GameState {
     protected List<Piece> capturedRedPiece;
     protected List<Piece> capturedBlackPiece;
     protected Stack<Integer> noCapture;
-    protected Stack<String> stateString;
+//    protected Stack<String> stateString;
     private final Map<String, Integer> stateHistory;
 
     // Constructor
@@ -32,11 +32,15 @@ public abstract class GameState {
         this.capturedBlackPiece = new ArrayList<>();
         this.noCapture = new Stack<>();
         this.stateHistory = new HashMap<>();
-        this.stateString = new Stack<>();
-        //this.stateString.push(new StateString(player, board).toString());
-        this.stateHistory.put(stateString.peek(), 1);
+//        this.stateString = new Stack<>();
+//        this.stateString.push(new StateString(player, board).toString());
+//        this.stateHistory.put(stateString.peek(), 1);
         this.timeRemainingRed = timeLimit;
         this.timeRemainingBlack = timeLimit;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 
     public GameState(Player player, Board board, int redTime, int blackTime,
@@ -50,7 +54,7 @@ public abstract class GameState {
         this.board = board;
         this.moved = moved;
         this.stateHistory = stateHistory;
-        this.stateString = stateString;
+//        this.stateString = stateString;
         this.capturedRedPiece = capturedRedPiece;
         this.capturedBlackPiece = capturedBlackPiece;
         this.noCapture = noCapture;
@@ -98,7 +102,7 @@ public abstract class GameState {
 
         if (capture) {
             noCapture.push(0);
-            stateString.push("Clear");
+//            stateString.push("Clear");
             stateHistory.clear();
         } else {
             noCapture.push(noCapture.isEmpty() ? 1 : noCapture.peek() + 1);
